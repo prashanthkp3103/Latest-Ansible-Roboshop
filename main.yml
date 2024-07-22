@@ -1,4 +1,4 @@
-- name: Frontend playbook
+- name: Roboshop project playbook
   hosts: all
   become: true
   roles:
