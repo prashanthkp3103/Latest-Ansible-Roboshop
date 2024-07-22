@@ -1,0 +1,15 @@
+- name: Nodejs Catalogue - Run tasks/other.yaml instead of 'main'
+  ansible.builtin.include_role:
+    name: common
+    tasks_from: nodejs
+
+###copy mongo client repo file
+#- name: copy mongo client repo file
+#  ansible.builtin.copy:
+#    src: mongo.repo
+#    dest: /etc/yum.repos.d/mongo.repo
+#
+#- name: Install the latest version of mongodb client
+#  ansible.builtin.dnf:
+#    name: mongodb-mongosh
+#    state: latest
