@@ -14,7 +14,7 @@
     chdir: "{{ app_path }}" # go inside app path and run npm install
 
 
-- name: Load schema -copy-mongorepo file-mongo client
+- name: Load schema -copy-mysql file-mysql client
   ansible.builtin.include_role:
     name: common
     tasks_from: schema
