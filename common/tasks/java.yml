@@ -9,7 +9,7 @@
     tasks_from: app-prereq
 
 - name: Download App dependencies
-  ansible.builtin.shell: mvn clean package ;mv target/{{ component }}}-1.0.jar {{ component }}.jar
+  ansible.builtin.shell: mvn clean package ;mv target/{{ component }}-1.0.jar {{ component }}.jar
   args:
     chdir: "{{ app_path }}" # go inside app path and run npm install
 
