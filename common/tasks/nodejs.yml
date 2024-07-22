@@ -1,0 +1,28 @@
+- name: disable nodejs older version
+  ansible.builtin.shell: dnf module disable nodejs -y
+
+- name: enable nodejs 1.20 version
+  ansible.builtin.shell: dnf module enable nodejs:20 -y
+
+#installation dnf supports
+- name: Install the latest version of nodejs
+  ansible.builtin.dnf:
+    name: nodejs
+    state: latest
+
+
+#get a task from another role
+- name: App Pre-req -Run tasks/other.yaml instead of 'main'
+  ansible.builtin.include_role:
+    name: common
+    tasks_from: app-prereq
+
+
+- name: Download APP dependencies
+  ansible.builtin.shell: npm install #therre could be npm module but still used shell
+  args:
+    chdir: "{{ app_path }}" # go inside app path and run npm install
+
+
+
+
