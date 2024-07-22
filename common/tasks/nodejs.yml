@@ -24,5 +24,15 @@
     chdir: "{{ app_path }}" # go inside app path and run npm install
 
 
+#get a task from another role
+- name: Load schema
+  ansible.builtin.include_role:
+    name: common
+    tasks_from: schema
 
+#get a task from another role
+- name: SystemD service
+  ansible.builtin.include_role:
+    name: common
+    tasks_from: systemd
 
