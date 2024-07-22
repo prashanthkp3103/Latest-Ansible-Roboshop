@@ -1,0 +1,19 @@
+- name: Copy Nginx config file
+  ansible.builtin.template:
+    src: mongo.repo
+    dest: /etc/yum.repos.d/mongo.repo
+
+- name: Installing Mongodb
+  ansible.builtin.shell: dnf install mongodb-org -y
+
+- name: Replace mongo config 127.0.0.1 to 0.0.0.0
+  ansible.builtin.replace:
+    path: /etc/mongod.conf
+    regexp: '127.0.0.1'
+    replace: '0.0.0.0'
+
+- name: Start mongodb
+  ansible.builtin.systemd_service:
+    name: mongod
+    state: restarted
+    enabled: true
