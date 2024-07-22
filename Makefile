@@ -1,7 +1,3 @@
 frontend:
 	git pull
-	git pull;ansible-playbook -i frontend.{{ env }}.meppk.xyz, -e ansible_user=ec2-user -e ansible_password=DevOps321 main.yml -e role_name=frontend
-
-mongo:
-	git pull
-	git pull;ansible-playbook -i mongo.{{ env }}.meppk.xyz, -e ansible_user=ec2-user -e ansible_password=DevOps321 main.yml -e role_name=mongo
+	ansible-playbook -i  frontend.{{ env }}.rdevopsb80.online, -e ansible_user=ec2-user -e ansible_password=DevOps321 -e role_name=frontend main.yml

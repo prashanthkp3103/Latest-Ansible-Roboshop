@@ -9,4 +9,4 @@
     state: latest
 
 - name: Load Master Data
-  ansible.builtin.shell: mongosh --host mongo.dev.meppk.xyz </app/db/master-data.js
+  ansible.builtin.shell: mongosh --host mongo.{{ env }}.meppk.xyz </app/db/master-data.js
