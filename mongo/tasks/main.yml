@@ -3,8 +3,13 @@
     src: mongo.repo
     dest: /etc/yum.repos.d/mongo.repo
 
+#- name: Installing Mongodb
+#  ansible.builtin.shell: dnf install mongodb-org -y
+
 - name: Installing Mongodb
-  ansible.builtin.shell: dnf install mongodb-org -y
+  ansible.builtin.dnf:
+    name: mongodb-org
+    state: latest
 
 - name: Replace mongo config 127.0.0.1 to 0.0.0.0
   ansible.builtin.replace:
