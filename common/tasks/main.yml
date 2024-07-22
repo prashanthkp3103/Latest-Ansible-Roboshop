@@ -1,0 +1,5 @@
+#- name: Set Prompt
+#  ansible.builtin.shell: set-prompt {{component}}-{{env}}
+
+- name: Set Prompt
+  ansible.builtin.shell: hostnamectl set-hostname {{component}}-{{env}}-ppk
