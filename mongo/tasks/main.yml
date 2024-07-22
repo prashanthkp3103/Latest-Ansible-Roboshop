@@ -1,4 +1,4 @@
-- name: Copy Nginx config file
+- name: Copy mongo config file
   ansible.builtin.template:
     src: mongo.repo
     dest: /etc/yum.repos.d/mongo.repo
