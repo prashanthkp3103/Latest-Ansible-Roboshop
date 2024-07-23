@@ -6,5 +6,5 @@ arguments=("frontend" "mongo" "catalogue" "redis" "user" "cart" "mysql" "shippin
 # Loop through the arguments array
 for arg in "${arguments[@]}"
 do
-    .bash run.sh "$arg"
+    source bash run.sh "$arg"
 done
