@@ -1,7 +1,7 @@
-- name: python- payment - Run tasks/other.yaml instead of 'main'
+- name: golang- dispatch - Run tasks/other.yaml instead of 'main'
   ansible.builtin.include_role:
     name: common
-    tasks_from: python
+    tasks_from: golang
 
 ###copy mongo client repo file
 #- name: copy mongo client repo file
