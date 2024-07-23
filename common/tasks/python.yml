@@ -1,0 +1,32 @@
+- name: Installing Python
+  ansible.builtin.dnf:
+    name:
+      - python3
+      - python3-devel
+      - gcc
+    state: latest
+
+#get a task from another role
+- name: App Pre-req -Run tasks/other.yaml instead of 'main'
+  ansible.builtin.include_role:
+    name: common
+    tasks_from: app-prereq
+
+- name: Download App dependencies
+  ansible.builtin.shell: pip3 install -r requirements.txt
+  args:
+    chdir: "{{ app_path }}" # go inside app path and run npm install
+
+
+- name: Load schema -copy-mysql file-mysql client
+  ansible.builtin.include_role:
+    name: common
+    tasks_from: schema
+  when: schema_setup is defined
+
+#get a task from another role
+- name: SystemD service
+  ansible.builtin.include_role:
+    name: common
+    tasks_from: systemd
+
