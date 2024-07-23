@@ -1,7 +1,7 @@
 - name: Nodejs Catalogue - Run tasks/other.yaml instead of 'main'
   ansible.builtin.include_role:
     name: common
-    tasks_from: nodejs
+    tasks_from: python
 
 ###copy mongo client repo file
 #- name: copy mongo client repo file
