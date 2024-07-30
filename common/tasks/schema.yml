@@ -13,7 +13,7 @@
         state: latest
 
     - name: Load Master Data
-      ansible.builtin.shell:  mongosh --host mongo.{{ env }}.meppk.xyz </app/db/{{ item }}.js
+      ansible.builtin.shell:  mongosh --host mongo{{ env }}.meppk.xyz </app/db/{{ item }}.js
       loop: "{{schema_files}}"
 
 - name: Load mysql schema
