@@ -3,6 +3,7 @@ Description = User Service
 [Service]
 User=roboshop
 Environment=MONGO=true
+#Environment=REDIS_URL='redis://redis.{{ env }}.meppk.xyz:6379'
 Environment=REDIS_URL='redis://redis.{{ env }}.meppk.xyz:6379'
 Environment=MONGO_URL="mongodb://mongo.{{ env }}.meppk.xyz:27017/users"
 ExecStart=/bin/node /app/server.js

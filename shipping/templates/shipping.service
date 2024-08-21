@@ -2,9 +2,9 @@
 Description=Shipping Service
 
 [Service]
-User=roboshop
-Environment=CART_ENDPOINT=cart.{{ env }}.meppk.xyz:8080
-Environment=DB_HOST=mysql.{{ env }}.meppk.xyz
+User={{ secrets.User}}
+Environment=CART_ENDPOINT={{ secrets.CART_ENDPOINT}}
+Environment=DB_HOST={{ secrets.DB_HOST }}
 ExecStart=/bin/java -jar /app/shipping.jar
 SyslogIdentifier=shipping
 

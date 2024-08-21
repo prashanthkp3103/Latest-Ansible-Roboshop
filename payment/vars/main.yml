@@ -1,2 +1,4 @@
 component: payment
 app_path: /app
+#below is to pull secrets from vaults
+secrets: "{{ lookup('hashi_vault', 'secret=roboshop-{{env}}/data/payment token={{ vault_token }} url=https://vault.meppk.xyz:8200 validate_certs=False')}}"

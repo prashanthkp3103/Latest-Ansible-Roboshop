@@ -5,3 +5,5 @@ schema_files:
   - schema
   - master-data
   - app-user
+#below is to pull secrets from vaults
+secrets: "{{ lookup('hashi_vault', 'secret=roboshop-{{env}}/data/shipping token={{ vault_token }} url=https://vault.meppk.xyz:8200 validate_certs=False')}}"
